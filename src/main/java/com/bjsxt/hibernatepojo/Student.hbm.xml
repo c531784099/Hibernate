@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    <hibernate-mapping package="com.bjsxt.hibernatepojo">
+     <class name="Student" table="student">
+     <id name="sno1" column="sno">
+        <generator class="native"></generator>
+     </id>
+     <property name="name1" column="name" type="java.lang.String"></property>
+     <property name="age1" column="age" type="java.lang.Integer"></property>
+     
+     <!-- 这里指定的是  student类和表 course 表的对应关系。这里通过正向工程生成数据库表 -->
+     <list name="cname1" table="course">
+     <!-- 表中的键的信息 -->
+     <!-- 这里的key参考的是  本地student 表的主键 -->
+        <key column="sno2"></key>
+        <index column="idex" type="java.lang.Integer"></index>
+      <element column="eles" type="java.lang.String"></element>
+     </list>
+     <!-- 添加set  集合数据 -->
+     <set name="hobbys" table="hobby">
+       <key column="sno2"></key>
+       <element column="hobby" type="java.lang.String"></element>     
+     </set>
+     
+     <map name="map1" table="map">
+       <key column="sno2"></key>
+      <map-key column="key1" type="java.lang.String"></map-key>
+      <element column="value1" type="java.lang.String"></element>
+     </map>
+     
+     
+     </class>
+    
+    
+    </hibernate-mapping>

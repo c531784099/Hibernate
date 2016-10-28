@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+   <hibernate-configuration>
+     <session-factory>
+     <!-- 配置数据库 -->
+       <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+       <property name="connection.url">jdbc:mysql://localhost:3306/hibernateweb?characterEncoding=utf8</property>
+       <property name="connection.username">root</property>
+		<property name="connection.password">root</property>
+		<!-- 配置数据库的 方言 -->
+		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+		<!-- 配置hibernate的sql的输出 -->
+		<property name="show_sql">true</property>
+		<property name="format_sql">true</property>
+		<!-- 正向工程  根据映射文件生成数据库中的表 -->
+		<property name="hbm2ddl.auto">update</property>
+		<!-- 开启二级缓存 -->
+		<property name="cache.use_second_level_cache">true</property>
+		<!-- 配置二级缓存的 实现者 -->
+		<property name="cache.provider_class">org.hibernate.cache.EhCacheProvider</property>
+		<!-- 开启查询缓存 -->
+		<property name="hibernate.cache.use_query_cache">true</property> 
+		
+		<!-- 加载pojo类的映射文件 相对路径 相对当前文件位置 -->
+		<!--  <mapping resource="com/bjsxt/hibernatepojo/User.hbm.xml"/>-->
+		<!--  <mapping resource="com/bjsxt/hibernatepojo/Student.hbm.xml"/>-->
+		<!-- 对象继承关系的测试 -->
+       <!--  <mapping resource="com/bjsxt/hibernatepojo1/Emp.hbm.xml"/> -->
+       <!-- 这里测试的是 对象的之间的  one-to-many的关系 -->
+      <!--   <mapping resource="com/bjsxt/hibernate2/School.hbm.xml"/>
+       <mapping resource="com/bjsxt/hibernate2/User.hbm.xml"/>-->
+       <!-- 这里是测试对象之间的    many-to-one -->
+       <!-- <mapping resource="com/bjsxt/hibernatepojo3/Dept.hbm.xml"/>
+       <mapping resource="com/bjsxt/hibernatepojo3/Emp.hbm.xml"/> -->
+       <!-- 这里测试的是双向的 one-to-many -->
+       <!-- <mapping resource="com/bjsxt/hibernatepojo4/Classes.hbm.xml"/>
+       <mapping resource="com/bjsxt/hibernatepojo4/Student.hbm.xml"/> -->
+       <!-- 测试双向的many-to-many -->
+       <!--  <mapping resource="com/bjsxt/hibernatepojo5/Project1.hbm.xml"/>
+       <mapping resource="com/bjsxt/hibernatepojo5/Emp.hbm.xml"/>-->      
+       <!-- 测试双向的one-to-one -->
+      <mapping resource="com/bjsxt/hibernatepojo6/Person.hbm.xml"/>
+      <mapping resource="com/bjsxt/hibernatepojo6/Address.hbm.xml"/>
+       <!-- 指定对那些类型的数据进行缓存  只对 这个类进行缓存-->
+       <class-cache usage="read-write" class="com.bjsxt.hibernatepojo6.Person"/> 
+    
+     </session-factory>
+   
+   
+   </hibernate-configuration>

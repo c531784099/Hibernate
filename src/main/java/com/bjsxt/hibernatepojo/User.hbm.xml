@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.bjsxt.hibernatepojo">
+<!-- 类名和表名对应 -->
+	<class name="User" table="user">
+	<!-- 类中的属性名和数据库表中的column对应关系的设置 -->
+		<id name="id1" column="id" type="java.lang.Integer">
+			<generator class="native"></generator>
+		</id>
+		<property name="name1" column="name" type="java.lang.String"></property>
+		<property name="age1" column="age" type="java.lang.Integer"></property>
+		<property name="dept1" column="dept" type="java.lang.String"></property>
+	</class>
+</hibernate-mapping>

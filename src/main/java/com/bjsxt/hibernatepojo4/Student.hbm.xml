@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+    <hibernate-mapping package="com.bjsxt.hibernatepojo4">
+    <class name="Student" table="stu_table"  >
+     <id name="sno" column="sno" type="java.lang.Integer">
+        <generator class="native"></generator>
+     </id> 
+    <property name="sname" column="sname" type="java.lang.String"></property>
+    <!-- 这里的column和set中的colmn必须是相同的列名 -->
+    <many-to-one name="clss" class="Classes"  column="sno1"   ></many-to-one>
+    </class>
+    
+    </hibernate-mapping>

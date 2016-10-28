@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+
+<hibernate-mapping package="com.bjsxt.hibernatepojo1">
+<!-- 这里的的配置  标识  数据库中的  每个子类对应一张表。 -->
+	<class name="Emp" table="emp_table_1">
+		<id name="no" column="no" type="java.lang.Integer">
+			<generator class="native"></generator>
+		</id>
+		<property name="age" column="age" type="java.lang.Integer"></property>
+		<property name="name" column="name" type="java.lang.String"></property>
+
+		<!-- 添加其他的表 -->
+		<joined-subclass name="Manager" table="manager_table">
+			<key column="nom"></key>
+			<property name="dept" column="dept" type="java.lang.String"></property>
+		</joined-subclass>
+
+		<joined-subclass name="Seller" table="seller_table">
+			<key column="nos"></key>
+			<property name="field" column="field" type="java.lang.String"></property>
+		</joined-subclass>
+	</class>
+</hibernate-mapping>

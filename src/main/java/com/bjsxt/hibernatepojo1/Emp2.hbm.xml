@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+    <hibernate-mapping package="com.bjsxt.hibernatepojo1">
+    <!-- class  name=父类的名字 -->
+    <!-- 对象的继承关系 这里设置的  是在同一张表中 -->
+     <class name="Emp" table="emp_table">
+      <id name="no" column="no1" type="java.lang.Integer">
+        <generator class="native"></generator>
+      </id>
+      <!-- 标识列 -->
+      <discriminator column="flag"></discriminator>
+      
+     <property name="age" column="age" type="java.lang.Integer"></property>
+     <property name="name" column="name" type="java.lang.String"></property>
+      <!-- 这里的name 是类的名字 -->
+     <subclass name="Manager" discriminator-value="manager">
+      <property name="dept" column="dept" type="java.lang.String"></property>   
+     </subclass>
+     <!-- 这里的name 是类的名字 -->
+     <subclass name="Seller" discriminator-value="seller">
+      <property name="field" column="field" type="java.lang.String"></property>   
+     </subclass>
+     
+     
+     </class>
+    
+     
+    
+    </hibernate-mapping>

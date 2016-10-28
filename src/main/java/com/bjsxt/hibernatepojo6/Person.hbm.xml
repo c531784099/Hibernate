@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    <hibernate-mapping package="com.bjsxt.hibernatepojo6">
+    <class name="Person" table="p_table" >
+    
+  <!--   <cache usage="read-write"/>  -->
+     
+     <id name="pid" column="pid" type="java.lang.Integer">
+     <generator class="native"></generator>
+     </id>
+     <property name="pname" column="pname" type="java.lang.String"></property>
+     <!-- 这张表是主表、含有级联查询 -->
+     <one-to-one name="address" class="Address" cascade="all"></one-to-one>
+     
+    </class>
+    
+    
+    </hibernate-mapping>

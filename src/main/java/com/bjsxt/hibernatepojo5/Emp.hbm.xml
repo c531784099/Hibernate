@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    <hibernate-mapping package="com.bjsxt.hibernatepojo5">
+    <class name="Emp" table="emp_table">
+      <id name="eid" column="eid">
+       <generator class="native"></generator>
+      </id>
+    <property name="ename" column="ename" type="java.lang.String"></property>
+    <!-- 因为数双向关系  需要双向的配置 从本地看 需要如下配置 -->
+    <!-- 默认为延迟加载  lazy="true" lazy="false" 为立即加载  fetch="join" 为立即加载、合并sql语句 -->
+    <set name="pros" table="pro_emp" cascade="all" lazy="true" fetch="join">
+     <key column="eid1"></key>
+    <many-to-many class="Project1" column="pid1"></many-to-many>
+    </set>
+    
+    </class>
+    
+    </hibernate-mapping>
+    
+    

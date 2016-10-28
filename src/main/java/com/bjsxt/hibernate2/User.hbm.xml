@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    <hibernate-mapping package="com.bjsxt.hibernate2">
+    <class name="User" table="u_table">   
+    <id name="no" column="no" type="java.lang.Integer">
+      <generator class="native"></generator>
+    </id>
+    <property name="name" column="name" type="java.lang.String"></property>
+    <property name="age" column="age" type="java.lang.Integer"></property>
+    </class>
+    
+    
+    </hibernate-mapping>

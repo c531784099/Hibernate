@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    <hibernate-mapping package="com.bjsxt.hibernatepojo3">
+      <class name="Emp" table="emp_table_many">
+       <id name="eid" column="eid" type="java.lang.Integer">
+        <generator class="native"></generator>
+       </id>
+       <property name="ename" column="ename" type="java.lang.String"></property>
+       <!-- 这里的edid参考的是 dept_table表的  主键 did  -->
+       <many-to-one name="dept" class="Dept" column="edid" ></many-to-one>
+      </class>
+    
+    </hibernate-mapping>

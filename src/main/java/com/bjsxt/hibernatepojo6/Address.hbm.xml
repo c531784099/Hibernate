@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    <hibernate-mapping package="com.bjsxt.hibernatepojo6">
+     <class name="Address" table="a_table">
+     
+      <id name="aid" column="aid" type="java.lang.Integer">
+      <!-- 本表的主键生成策略 -->
+       <generator class="native">  
+       </generator>
+      </id>
+     
+     <property name="aname" column="aname" type="java.lang.String"></property>
+     
+    <!-- 首先添加 person的 数据 其次添加   address表的数据。列值唯一、参考person的主键、名称是pid -->
+     <many-to-one name="person" class="Person" unique="true" >
+      <column name="pid"></column>   
+     </many-to-one>
+     
+     </class>
+    
+    
+    </hibernate-mapping>

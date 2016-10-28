@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+    <hibernate-mapping package="com.bjsxt.hibernate2">
+    <!-- 这里描述的是一对多的  关系映射、通过 set集合的key来标识 -->
+    <class name="School" table="s_table">
+     <id name="no" column="no" type="java.lang.Integer">
+      <generator class="native"></generator>
+     </id>
+     <property name="name" column="name" type="java.lang.String"> </property>
+    <set name="set" table="u_table">
+    <!-- 这个setid  是set集合的下标 描述的是  该set集合和schoole对象的哪一行记录相对应 setid  是no 的外键  -->
+      <key column="setid"></key>
+      <one-to-many class="User"/>
+    </set>
+    </class>
+    
+    
+    </hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    <hibernate-mapping package="com.bjsxt.hibernatepojo5">
+    <class name="Project1" table="pro_table">
+     <id name="pid" column="pid" type="java.lang.Integer">
+      <generator class="native"></generator>
+     </id>
+     <property name="pname" column="pname" type="java.lang.String"></property>
+     <!-- 两个表之间的关系表 -->
+     <!-- 这里配置的是 双向关系表、本地需要如下配置 -->
+    <set name="emps" table="pro_emp" inverse="true">
+    <key column="pid1"></key>
+    <many-to-many class="Emp" column="eid1"></many-to-many>
+    </set>
+    
+    </class>
+    
+    
+    </hibernate-mapping>

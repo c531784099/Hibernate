@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+    <hibernate-mapping package="com.bjsxt.hibernatepojo4">
+    
+    <class name="Classes" table="cls_table" >
+      <id name="cno" column="cno" type="java.lang.Integer">
+       <generator class="native"></generator>
+      </id>
+    <property name="cname" column="cname" type="java.lang.String"></property>
+    
+     <set name="set1" table="stu_table" cascade="all" inverse="true" >
+     <!-- 这里的sno 和stu_table表中的 sno 是相同的含义 -->
+        <key column="sno1" ></key>
+        <one-to-many class="Student"/>
+     
+     </set>
+    
+    
+    </class>
+    
+    
+    </hibernate-mapping>
